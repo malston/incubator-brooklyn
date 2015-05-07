@@ -72,6 +72,7 @@ public interface ApplicationApi {
             @QueryParam("items") String items);
 
     @GET
+    @Path("/list")
     @ApiOperation(
             value = "Fetch list of applications, as ApplicationSummary objects",
             responseClass = "brooklyn.rest.domain.ApplicationSummary"
@@ -82,6 +83,11 @@ public interface ApplicationApi {
             @QueryParam("typeRegex") String typeRegex);
 
     /** As {@link #list(String)}, filtering for <code>.*</code>. */
+    @GET
+    @ApiOperation(
+            value = "Fetch list of applications, as ApplicationSummary objects",
+            responseClass = "brooklyn.rest.domain.ApplicationSummary"
+    )
     public List<ApplicationSummary> list();
 
     @GET
